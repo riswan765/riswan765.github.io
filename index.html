@@ -2,57 +2,72 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riswan Fauji | Web Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riswan Fauji | Web Developer | Online Game Player</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Share Tech Mono', monospace;
     }
 
     body {
-      background: #0f172a;
-      color: #e2e8f0;
-      scroll-behavior: smooth;
+      background: black;
+      color: #00ff9c;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
     }
 
     header {
-      padding: 2rem;
       text-align: center;
-      background: #1e293b;
-      animation: fadeIn 1s ease-out;
+      padding: 4rem 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .avatar {
       width: 150px;
       height: 150px;
       border-radius: 50%;
+      border: 3px solid #00ff9c;
       object-fit: cover;
-      border: 4px solid #38bdf8;
       margin-bottom: 1rem;
-      animation: fadeIn 1.2s ease-out;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #38bdf8;
+    .name {
+      font-size: 2.8rem;
+      color: #00ff9c;
+      text-shadow: 0 0 5px #00ff9c, 0 0 15px #00ff9c;
     }
 
     header p {
       font-size: 1.2rem;
-      margin-top: 0.5rem;
+      color: #00ffaa;
     }
 
     section {
-      padding: 3rem 2rem;
+      padding: 2rem;
       max-width: 800px;
       margin: auto;
+      position: relative;
+      z-index: 1;
     }
 
     h2 {
-      color: #38bdf8;
+      color: #00ffc3;
       margin-bottom: 1rem;
+      text-shadow: 0 0 10px #00ffcc;
     }
 
     .skills {
@@ -62,7 +77,8 @@
     }
 
     .skill {
-      background: #334155;
+      background: rgba(0, 255, 156, 0.1);
+      border: 1px solid #00ff9c;
       padding: 1rem 2rem;
       border-radius: 8px;
       transition: transform 0.3s;
@@ -70,27 +86,25 @@
 
     .skill:hover {
       transform: scale(1.05);
+      background: rgba(0, 255, 156, 0.2);
     }
 
-    .contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #38bdf8;
-      margin-top: 0.5rem;
-      text-decoration: none;
-      transition: opacity 0.3s;
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
     }
 
-    .contact a:hover {
-      opacity: 0.8;
+    .contact img {
+      width: 36px;
+      height: 36px;
+      filter: brightness(1.5);
+      transition: transform 0.3s;
     }
 
-    footer {
-      background: #1e293b;
-      padding: 2rem;
-      text-align: center;
-      color: #94a3b8;
+    .contact img:hover {
+      transform: scale(1.1);
     }
 
     .music-player {
@@ -98,32 +112,37 @@
       text-align: center;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer {
+      background: #000;
+      color: #00ff9c;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: #38bdf8;
+    #typed-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <canvas id="stars"></canvas>
+
   <header>
     <img src="http://d.zaix.ru/NHUo.jpg" alt="Foto Riswan Fauji" class="avatar" />
-    <h1>Riswan Fauji</h1>
-    <p>Web Developer | WhatsApp Bot Enthusiast</p>
+    <h1 class="name">Riswan Fauji</h1>
+    <p>Web Developer | WhatsApp Bot Enthusiast | Online Game Player</p>
   </header>
 
   <section id="about">
     <h2>Tentang Saya</h2>
-    <p>
-      Halo! Saya adalah seorang website developer yang bersemangat untuk belajar tentang website dan script bot WhatsApp.
-      Saya suka mengotak-atik kode, belajar teknologi baru, dan menciptakan solusi yang bermanfaat. Dengan pengalaman di berbagai
-      bahasa pemrograman, saya selalu berusaha memberikan hasil terbaik dalam setiap project.
-    </p>
+    <p><span id="typed-text"></span></p>
   </section>
 
   <section id="skills">
@@ -133,32 +152,97 @@
       <div class="skill">CSS</div>
       <div class="skill">JavaScript</div>
       <div class="skill">WhatsApp Bot</div>
+      <div class="skill">Mobile Legends</div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Kontak</h2>
     <div class="contact">
-      <p>Email: <a href="mailto:riswanfauji04@gmail.com">riswanfauji04@gmail.com</a></p>
+      <a href="mailto:riswanfauji04@gmail.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
+      </a>
       <a href="https://instagram.com/riswanfzy" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.61-30.61C295.07,123.2,224,122.63,224,122.63s-71.07.57-94.1,8.42A54,54,0,0,0,99.29,161.66C91.43,184.69,90.86,256,90.86,256s.57,71.07,8.42,94.1a54,54,0,0,0,30.61,30.61c23,7.85,94.1,8.42,94.1,8.42s71.07-.57,94.1-8.42a54,54,0,0,0,30.61-30.61c7.85-23,8.42-94.1,8.42-94.1S356.56,184.69,348.71,161.66ZM224,338.83A82.83,82.83,0,1,1,306.83,256,82.93,82.93,0,0,1,224,338.83ZM370.5,136.1a19.38,19.38,0,1,1-19.38-19.38A19.39,19.39,0,0,1,370.5,136.1ZM398.8,128c-1.2-25.52-6.64-48.11-24.09-65.57S353.52,26.4,328,25.2C301.21,24,224,24,224,24s-77.21,0-104,1.2C94.48,26.4,71.89,31.84,54.43,49.29S26.4,94.48,25.2,120C24,146.79,24,224,24,224s0,77.21,1.2,104c1.2,25.52,6.64,48.11,24.09,65.57S94.48,481.6,120,482.8c26.79,1.2,104,1.2,104,1.2s77.21,0,104-1.2c25.52-1.2,48.11-6.64,65.57-24.09s22.89-40.05,24.09-65.57c1.2-26.79,1.2-104,1.2-104S400,146.79,398.8,128Z"/>
-        </svg>
-        @Riswanfzy
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
       </a>
     </div>
   </section>
 
   <section class="music-player">
-    <h2>Musik Latar</h2>
+    <h2>Musik ( Surat Cinta Untuk Starla )</h2>
     <audio controls>
       <source src="https://i.top4top.io/m_3450uvjv70.mp3" type="audio/mpeg">
-      Browser Anda tidak mendukung audio.
+      Browser tidak mendukung audio.
     </audio>
   </section>
 
   <footer>
-    &copy; 2025 Riswan Fauji. Dibuat dengan ❤️ dan semangat.
+    &copy; 2025 Riswan Fauji. Dibuat dengan gabut saja.
   </footer>
+
+  <script>
+    const text = "Halo! Saya adalah seorang web developer dan game player yang bersemangat mempelajari teknologi web, script WhatsApp Bot dan juga bermain game. Saya suka mengotak-atik kode, belajar hal baru, dan menciptakan solusi yang bermanfaat.";
+    let index = 0;
+    const speed = 30;
+
+    function typeText() {
+      if (index < text.length) {
+        document.getElementById("typed-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, speed);
+      }
+    }
+    window.addEventListener('load', typeText);
+
+    // === STARFIELD CANVAS ===
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let stars = [];
+
+    function initStars(count) {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          z: Math.random() * w
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = '#00ff9c';
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        const k = 128.0 / star.z;
+        const px = star.x * k + w / 2;
+        const py = star.y * k + h / 2;
+
+        if (px >= 0 && px <= w && py >= 0 && py <= h) {
+          const size = (1 - star.z / w) * 2;
+          ctx.beginPath();
+          ctx.arc(px, py, size, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+
+        star.z -= 2;
+        if (star.z <= 0) {
+          star.z = w;
+        }
+      }
+
+      requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener('resize', () => initStars(500));
+    initStars(500);
+    drawStars();
+  </script>
+
 </body>
 </html>
